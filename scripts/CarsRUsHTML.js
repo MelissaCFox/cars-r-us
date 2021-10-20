@@ -2,6 +2,7 @@ import { Colors } from "./Colors.js";
 import { Interiors } from "./Interiors.js";
 import { Orders } from "./Orders.js";
 import { Technologies } from "./Technologies.js";
+import { VehicleTypes } from "./VehicleTypes.js";
 import { Wheels } from "./Wheels.js";
 
 
@@ -9,6 +10,10 @@ export const CarsRUS = () => {
     return `
     <h1>Cars 'R Us: Personal Car Builder</h1>
     <article class="choices">
+        <section class="choices__types options">
+        <h2>Vehicle Type</h2>
+            ${VehicleTypes()}
+        </section>
         <section class="choices__colors options">
             <h2>Color</h2>
             ${Colors()}

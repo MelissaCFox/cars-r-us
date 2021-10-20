@@ -1,4 +1,4 @@
-import { addCustomOrder, getColors, getInteriors, getOrders, getTechnologies, getWheels } from "./database.js";
+import { addCustomOrder, getColors, getInteriors, getOrders, getTechnologies, getTypes, getWheels } from "./database.js";
 
 
 
@@ -38,13 +38,21 @@ const buildOrderListItem = (order) => {
             return wheel.id === order.wheelId
         }
     )
-    const totalCost = foundColor.price + foundInterior.price + foundTechnology.price + foundWheels.price
+    const vehicleTypeArray = getTypes()
+    const foundVehicleType = vehicleTypeArray.find(
+        (type) => {
+            return type.id === order.vehicleTypeId
+        }
+    )
+
+    const initialCost = foundColor.price + foundInterior.price + foundTechnology.price + foundWheels.price
+    const totalCost = initialCost * foundVehicleType.priceMultiplier
     const costString = totalCost.toLocaleString("en-US", {
         style: "currency",
         currency: "USD"
     })
     return `<li>
-    ${foundColor.color} car with ${foundWheels.wheel} wheels, ${foundInterior.interior} interior, and the ${foundTechnology.technology} for a total cost of ${costString}
+    ${foundColor.color} ${foundVehicleType.type} with ${foundWheels.wheel} wheels, ${foundInterior.interior} interior, and the ${foundTechnology.technology} for a total cost of ${costString}
     </li>`
 
 }
