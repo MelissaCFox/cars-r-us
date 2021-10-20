@@ -1,0 +1,28 @@
+.options {
+    flex-basis: 24%;
+    /* margin: 0 2rem; */
+    border: 1px dashed dodgerblue;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    box-shadow: 0.25rem 0.25rem 0.5rem rgb(143, 143, 143);
+    height: 150px;
+    min-width: 250px;
+    max-width:250px;
+    background-color: rgb(241, 241, 211);
+    margin: 25px 2rem;
+}
+
+.choices {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+
+}
+
+li {
+    border: 1px dashed dodgerblue;
+    background-color: rgb(217, 227, 236);
+    padding: 10px;
+    margin: 10px
+
+
